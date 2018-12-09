@@ -1,0 +1,10 @@
+
+router ospf 3
+ redistribute bgp 300 
+ network 130.15.0.0 0.0.255.255 area 3
+ exit
+router bgp 300
+ neighbor 130.14.255.254 remote-as 200
+ redistribute ospf 3 match internal external
+ synchronization
+ exit

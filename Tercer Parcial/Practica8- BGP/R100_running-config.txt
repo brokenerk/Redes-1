@@ -1,0 +1,11 @@
+
+router ospf 1
+ network 130.1.0.0 0.0.255.255 area 1
+ redistribute bgp 100 subnets
+ exit
+
+router bgp 100
+ neighbor 130.6.255.253 remote-as 200
+ redistribute ospf 1 match internal external
+ synchronization
+ exit
